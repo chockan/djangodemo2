@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>showproducts</h1>
+<!-- 
+{% if products %}
+    {% for product in products %}
+        {{ product.id }}
+        {{ product.name }}
+        {{ product.price }}
+        <img src="{{product.image.url}}" alt="..."/>
+
+    {% endfor%}
+
+{% endif %} -->
+
+{% if products %}
+    {% for product in products %}
+
+<div class="card" style="width: 18rem;">
+    <img src="{{product.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <h5 class="card-title">{{ product.price }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <a href="{% url 'product'  product.pk %}" class="btn btn-primary">Detail</a>
+    </div>
+  </div>
+    {% endfor%}
+  {% endif %}
+
+{% endblock %}

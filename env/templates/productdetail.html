@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Productdetail</h1>
+
+{% if eachproduct %}
+<a href="{% url 'showllproduct' %}" class="btn btn-primary">back</a>
+<div class="card" style="width: 18rem;">
+    
+    <img src="{{eachproduct.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ eachproduct.name }}</h5>
+      <h5 class="card-title">{{ eachproduct.price }}</h5>
+      <p class="card-text">{{ eachproduct.description }}</p>
+      <a href="{% url 'updateproduct' eachproduct.id %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'deleteproduct' eachproduct.id %}" class="btn btn-primary">Delete</a>
+    </div>
+  </div>
+  {% else %}
+    <p>product not available</p>
+
+
+  {% endif %}
+
+  
+
+{% endblock %}
+
